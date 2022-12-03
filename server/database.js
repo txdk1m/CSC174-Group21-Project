@@ -6,19 +6,12 @@ const mysql = require('mysql');
 // read database access in the .env file... typically
 // you wouldn't include .env file in normal applications
 
-let devConnection = mysql.createConnection({
-    host: process.env.DB_HOST,
+// create a pool connection instead of a single instance
+let devConnection = mysql.createPool({
     user: process.env.DB_USER,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASS
-});
-
-// check for connection to the db server
-devConnection.connect(function(err) {
-    if(err)
-        console.error('Error connection: ' + err.stack);
-    else
-        console.log('Connected as thread id: ' + devConnection.threadId);
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    socketPath: `/cloudsql/${process.env.DB_INSTANCE_CONNECTION_NAME}`
 });
 
 module.exports = devConnection;

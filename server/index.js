@@ -8,15 +8,15 @@ app.get("/", (req, res) => {
 });
 
 // EXAMPLE FOR TED AND HIEN
-// app.get("/query1", async (req, res) => {
-//     const query = "SELECT * FROM table1"; // Write your "PURE SQL" here
-//     sqlConnect.query(query, [req.params.tablename], (error, results) => {
-//         if (!results[0])
-//             res.json({ status: "Query Not Found!!" });
-//         else
-//             res.json(results[0]);
-//     })
-// });
+app.get("/testTable", async (req, res) => {
+    const query = "SELECT * FROM testTable"; // Write your "PURE SQL" here
+    sqlConnect.query(query, [req.params.tablename], (error, results) => {
+        if (!results[0])
+            res.json({ status: "Query Not Found!!" });
+        else
+            res.json(results[0]);
+    })
+});
 
 app.set('port', PORT);
 app.listen(PORT, () => {
