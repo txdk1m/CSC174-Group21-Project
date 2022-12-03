@@ -1,0 +1,11 @@
+#ignore all logs
+.log
+
+## Ignore Mac OS Stuff
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+node_modules
