@@ -1,15 +1,15 @@
+const express = require("express");
+const pool = require("./database");
+const app = express();
+
+app.use(express.json());
+
 // CORS Policy keeps blocking requests.. stop it!
 const cors = require('cors');
 app.use(cors({
     origin: '*'
 }));
 
-
-const express = require("express");
-const pool = require("./database");
-const app = express();
-
-app.use(express.json());
 const PORT = process.env.PORT || 4201;
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
