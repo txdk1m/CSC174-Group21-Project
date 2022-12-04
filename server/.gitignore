@@ -1,5 +1,6 @@
 #ignore all logs
 .log
+npm-debug.log
 
 ## Ignore Mac OS Stuff
 .DS_Store
@@ -8,4 +9,4 @@
 
 # Thumbnails
 ._*
-node_modules
+/node_modules
