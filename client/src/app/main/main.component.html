@@ -20,17 +20,40 @@
 <div class="tile">
 
     <div class="tile is-parent">
-        <div class="tile is-child box notification is-dark">
+        <div class="tile is-child box notification is-light">
             <p class="title">Register</p>
             Checking if input customer data goes into database
         </div>
     </div>
 
     <div class="tile is-parent">
-        <div class="tile is-child box notification is-dark">
+        <div class="tile is-child box notification is-light">
             <p class="title">Customer Table</p>
             Checking customer data in the database (may have to refresh).
-            
+            <section style="padding-top: 1em;">
+            <table mat-table [dataSource]="testTableData">
+                <!-- FName Column -->
+                <ng-container matColumnDef="fname">
+                    <th mat-header-cell *matHeaderCellDef> First Name </th>
+                    <td mat-cell *matCellDef="let data"> {{data.fname}} </td>
+                </ng-container>
+
+                 <!-- FName Column -->
+                 <ng-container matColumnDef="lname">
+                    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                    <td mat-cell *matCellDef="let data"> {{data.lname}} </td>
+                </ng-container>
+
+                 <!-- FName Column -->
+                 <ng-container matColumnDef="age">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let data"> {{data.age}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="testTableColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: testTableColumns;"></tr>
+            </table>
+        </section>
         </div>
     </div>
 </div>

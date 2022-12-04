@@ -6,3 +6,8 @@
 table {
     width: 100%;
 }
+
+td, th {
+    text-align: left !important;
+    vertical-align: middle !important;
+}
