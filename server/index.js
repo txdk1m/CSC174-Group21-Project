@@ -17,10 +17,10 @@ app.get("/testTable", async (req, res) => {
     const query = "SELECT * FROM testTable"; // Write your "PURE SQL" here
     pool.query(query, [req.params.testTable], (error, results) => {
         
-        if (!results[0])
+        if (!results)
             res.json({ status: "Query Not Found!!" });
         else
-            res.json(results[0]);
+            res.json(results);
     })
 });
 

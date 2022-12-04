@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow-x: clip;
+    /* Chrome */
+    overflow-y: scroll;
+    /* Chrome */
+    scrollbar-width: auto;
+    /* Firefox */
+    -ms-overflow-style: auto;
+    /* IE and Edge */
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* scrollbar invisible */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #bababa;
+    /* show position indicator in a color */
+  }
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Please keep this at the end of the file */
+@import 'bulma/css/bulma.css'
