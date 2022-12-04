@@ -25,7 +25,6 @@ export class MainComponent implements OnInit {
   testTableInit() {
     this.http.get('https://movie-174project.herokuapp.com/testTable').subscribe(res => {
       this.testTableData = res;
-      console.log(this.testTableData);
     });
   }
 
