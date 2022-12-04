@@ -1,9 +1,17 @@
+html {
+  background: rgb(213, 213, 213);
+  background: -moz-linear-gradient(90deg, rgba(213, 213, 213, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(213, 213, 213, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(213, 213, 213, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(213, 213, 213, 1) 100%);
+  background: linear-gradient(90deg, rgba(213, 213, 213, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(213, 213, 213, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d5d5d5", endColorstr="#d5d5d5", GradientType=1);
+}
+
 body {
-    .route {
-      z-index: 17;
-    }
-  
-    .footer {
-      padding: 2em 0em 0em;
-    }
+  .route {
+    z-index: 17;
   }
+
+  .footer {
+    padding: 2em 0em 0em;
+  }
+}

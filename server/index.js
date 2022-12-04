@@ -1,3 +1,10 @@
+// CORS Policy keeps blocking requests.. stop it!
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
+
 const express = require("express");
 const pool = require("./database");
 const app = express();
