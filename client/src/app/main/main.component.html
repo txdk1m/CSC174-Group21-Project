@@ -23,31 +23,35 @@
         <div class="tile is-child box notification is-light">
             <p class="title">Register</p>
             Checking if input customer data goes into database
-
-            <!-- Its time for the forms -->
             <section style="padding-top: 1em;">
-                <mat-form-field appearance="outline">
-                    <mat-label>First Name</mat-label>
-                    <input matInput>
-                </mat-form-field>
-                
-                <mat-form-field appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput>
-                </mat-form-field>
+                <!-- Its time for the forms -->
+                <div class="container">
+                    <form [formGroup]="form" (ngSubmit)="submitDetails(form)">
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Email</mat-label>
-                    <input matInput>
-                </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="Type name" formControlName="f_name">
+                        </mat-form-field>
 
-                <mat-form-field appearance="outline">
-                    <mat-label>Phone Number</mat-label>
-                    <input matInput>
-                </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="l_name">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput formControlName="phoneNumber">
+                        </mat-form-field>
+
+                        <button class="button is-dark" type="submit">Submit</button>
+                    </form>
+                </div>
             </section>
-
-            <button class="button is-dark">Submit</button>
         </div>
     </div>
 
