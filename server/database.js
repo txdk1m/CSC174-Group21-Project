@@ -1,17 +1,20 @@
 const mysql = require('mysql');
+require('dotenv').config()
 
-// Database Connection for Development MySQL Server
-// Using Google Cloud
-
-// read database access in the .env file... typically
-// you wouldn't include .env file in normal applications
+// Database Connection for Development ClearDB MySQL Server
+// Using Heroku
 
 // create a pool connection instead of a single instance
 let devConnection = mysql.createPool({
+    host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    socketPath: `/cloudsql/${process.env.DB_INSTANCE_CONNECTION_NAME}`
+});
+
+devConnection.getConnection(function (err) {
+    if (err) throw err;
+    console.log('MySQL Connected!');
 });
 
 module.exports = devConnection;

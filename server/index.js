@@ -1,7 +1,12 @@
-const PORT = process.env.PORT || 4201;
 const express = require("express");
-const sqlConnect = require("./database");
+const pool = require("./database");
 const app = express();
+
+app.use(express.json());
+const PORT = process.env.PORT || 4201;
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
 
 app.get("/", (req, res) => {
     res.json({ message: "Server is up!" })
@@ -10,7 +15,8 @@ app.get("/", (req, res) => {
 // EXAMPLE FOR TED AND HIEN
 app.get("/testTable", async (req, res) => {
     const query = "SELECT * FROM testTable"; // Write your "PURE SQL" here
-    sqlConnect.query(query, [req.params.tablename], (error, results) => {
+    pool.query(query, [req.params.testTable], (error, results) => {
+        
         if (!results[0])
             res.json({ status: "Query Not Found!!" });
         else
@@ -18,7 +24,3 @@ app.get("/testTable", async (req, res) => {
     })
 });
 
-app.set('port', PORT);
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}. To access API please use: http://localhost:4201/`);
-});
