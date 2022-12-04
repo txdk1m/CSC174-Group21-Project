@@ -23,7 +23,16 @@ app.get("/", (req, res) => {
 app.get("/testTable", async (req, res) => {
     const query = "SELECT * FROM testTable"; // Write your "PURE SQL" here
     pool.query(query, [req.params.testTable], (error, results) => {
-        
+        if (!results)
+            res.json({ status: "Query Not Found!!" });
+        else
+            res.json(results);
+    })
+});
+
+app.get("/customerInfo", (req, res) => {
+    const query = "SELECT f_name, l_name, email, phoneNumber FROM customer";
+    pool.query(query, [req.params.customerInfo], (error, results) => {
         if (!results)
             res.json({ status: "Query Not Found!!" });
         else
